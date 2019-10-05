@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.zcxm.user.dao.IUserDao">
+
+    <insert id="insert">
+        insert into users(userName,userPwd,userNc,userEmali)
+        values(#{userName},#{userPwd},#{userNc},#{userEmail})
+    </insert>
+    <sql id="usersColumns">${alias}.userName,${alias}.userPwd,${alias}.userNc,${alias}
+    .userEmail</sql>
+    <select id="getUserByUserName" resultType="com.demo.zcxm.user.service.bo.User">
+        select
+        <include refid="usersColumns"><property name="alias" value="u1"/></include>
+        from users u1
+        where userName=#{userName}
+    </select>
+</mapper>
