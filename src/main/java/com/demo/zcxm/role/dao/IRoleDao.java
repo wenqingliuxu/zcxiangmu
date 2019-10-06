@@ -1,0 +1,12 @@
+package com.demo.zcxm.role.dao;
+
+import java.util.List;
+
+/**
+ * @Author: 刘旭
+ * Date: 2019/10/6 14:10
+ * @Version 1.0
+ */
+public interface IRoleDao {
+    public List<Integer> selectRidByUid(int userId);
+}

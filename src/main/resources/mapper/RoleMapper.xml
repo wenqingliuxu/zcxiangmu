@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.zcxm.role.dao.IRoleDao">
+    <select id="selectRidByUid" resultType="java.lang.Integer">
+        select rId from user_role_mapping where uId=#{userId};
+    </select>
+</mapper>

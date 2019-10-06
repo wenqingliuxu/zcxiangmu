@@ -8,7 +8,7 @@
         insert into users(userName,userPwd,userNc,userEmali)
         values(#{userName},#{userPwd},#{userNc},#{userEmail})
     </insert>
-    <sql id="usersColumns">${alias}.userName,${alias}.userPwd,${alias}.userNc,${alias}
+    <sql id="usersColumns">${alias}.userId,${alias}.userName,${alias}.userPwd,${alias}.userNc,${alias}
     .userEmail</sql>
     <select id="getUserByUserName" resultType="com.demo.zcxm.user.service.bo.User">
         select
