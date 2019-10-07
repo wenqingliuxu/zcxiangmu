@@ -18,4 +18,10 @@
     <delete id="deleteRid">
         delete from user_role_mapping where uId=#{userId}
     </delete>
+    <select id="loadRoleByUserId" resultType="com.demo.zcxm.role.service.bo.Role">
+        select * from roles where roleId in (select rId from user_role_mapping where uId=#{userId})
+    </select>
+    <select id="loadRoleByNoUserId" resultType="com.demo.zcxm.role.service.bo.Role">
+        select * from roles where roleId not in (select rId from user_role_mapping where uId=#{userId})
+    </select>
 </mapper>

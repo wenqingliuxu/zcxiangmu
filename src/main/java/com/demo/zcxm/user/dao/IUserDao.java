@@ -16,7 +16,7 @@ public interface IUserDao {
 //    查询用户名是否存在
     public Integer getUserNameCount(String userName);
 //    查询所有用户信息
-    public List<User> loadAllUsers();
+    public List<User> loadAllUsers(int page,int rows);
 //    批量删除用户
     public void deleteUsers(List<Integer> ids);
 //    根据Id删除用户
@@ -25,4 +25,12 @@ public interface IUserDao {
     public User loadUserById(int userId);
 //    更新用户信息
     public void updateUser(User user);
+//    模糊查询
+    public List<User> fuzzyQuery(String sql);
+//    查询最大用户Id
+    public int getMaxUserId();
+//    获取总行数
+    public int getTotalCount();
+//    计算最大页数
+    public int calcMaxPage(int rows);
 }

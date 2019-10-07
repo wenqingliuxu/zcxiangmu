@@ -1,5 +1,7 @@
 package com.demo.zcxm.role.dao;
 
+import com.demo.zcxm.role.service.bo.Role;
+
 import java.util.List;
 
 /**
@@ -11,4 +13,6 @@ public interface IRoleDao {
     public List<Integer> selectRidByUid(int userId);
     public void deleteRids(List<Integer> ids);
     public void deleteRid(int userId);
+    public List<Role> loadRoleByUserId(int userId);
+    public List<Role> loadRoleByNoUserId(int userId);
 }

@@ -12,9 +12,12 @@ public interface IUserService {
     public void register(User user);
     public User getUserByUserName(String userName);
     public Integer getUserNameCount(String userName);
-    public List<User> loadAllUsers();
+    public List<User> loadAllUsers(int page,int rows);
     public void deleteUsers(List<Integer> ids);
     public void delete(int userId);
     public User loadUserById(int userId);
     public void updateUser(User user);
+    public List<User> fuzzyQuery(String sql);
+    public int getMaxUserId();
+    public int calcMaxPage(int rows);
 }

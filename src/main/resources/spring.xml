@@ -35,10 +35,16 @@
         <property name="configLocation" value="classpath:mybatis.xml"/>
         <property name="typeAliasesPackage" value="com.demo.zcxm.**.bo"></property>
         <property name="mapperLocations" value="classpath*:mapper/**/*.xml"/>
+        <!--所以插件(分页插件)-->
+        <property name="plugins">
+            <bean class="com.github.pagehelper.PageInterceptor"></bean>
+        </property>
     </bean>
 <!--    自动生成IDAO接口的代理实例-->
     <bean id="mapperScannerConfigurer"
           class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.demo.zcxm.**.dao"></property>
+
     </bean>
+
 </beans>

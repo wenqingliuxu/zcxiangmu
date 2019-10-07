@@ -1,4 +1,4 @@
-package com.demo.zcxm.role.dao.service.bo;
+package com.demo.zcxm.role.service.bo;
 
 /**
  * @Author: 刘旭

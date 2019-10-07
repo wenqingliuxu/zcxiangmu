@@ -38,11 +38,20 @@
     </delete>
     <select id="loadUserById" resultType="com.demo.zcxm.user.service.bo.User">
         select
-        <include refid="usersColumns"><property name="alias" value="U1"/></include>
+        <include refid="usersColumns"><property name="alias" value="u1"/></include>
         from users u1
         where userId=#{userId}
     </select>
     <update id="updateUser">
         update users set userName=#{userName},userPwd=#{userPwd},userNc=#{userNc},userEmail=#{userEmail} where userId=#{userId}
     </update>
+    <select id="fuzzyQuery" resultType="com.demo.zcxm.user.service.bo.User">
+        select * from users where userName like '%' #{like} '%'
+    </select>
+    <select id="getTotalCount" resultType="int">
+        select count(userId) from users
+    </select>
+    <select id="getMaxUserId" resultType="int">
+        select max(userId) from users
+    </select>
 </mapper>

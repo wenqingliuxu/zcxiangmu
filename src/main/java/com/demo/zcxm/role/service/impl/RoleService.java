@@ -2,6 +2,7 @@ package com.demo.zcxm.role.service.impl;
 
 import com.demo.zcxm.role.dao.IRoleDao;
 import com.demo.zcxm.role.service.IRoleService;
+import com.demo.zcxm.role.service.bo.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +30,15 @@ public class RoleService implements IRoleService {
     @Override
     public void deleteRid(int userId) {
         roleDao.deleteRid(userId);
+    }
+
+    @Override
+    public List<Role> loadRoleByUserId(int userId) {
+        return roleDao.loadRoleByUserId(userId);
+    }
+
+    @Override
+    public List<Role> loadRoleByNoUserId(int userId) {
+        return roleDao.loadRoleByNoUserId(userId);
     }
 }

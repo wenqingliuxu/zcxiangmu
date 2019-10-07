@@ -81,9 +81,20 @@ public class UserController extends RoleController {
     }
 
     @RequestMapping("/user")
-    public String showUsers(Model model){
-        List<User> users = userService.loadAllUsers();
+    public String showUsers(@RequestParam(required=false,defaultValue = "1") int page,
+                            @RequestParam(required = false,defaultValue = "10") int rows,
+                            Model model){
+        int maxPage=userService.calcMaxPage(rows);
+        if(page<1){
+            page=maxPage;
+        }
+        if(page>maxPage){
+            page=1;
+        }
+        List<User> users = userService.loadAllUsers(page, rows);
         model.addAttribute("users",users);
+        model.addAttribute("currentPage",page);
+        model.addAttribute("maxPage",maxPage);
         return "user";
     }
     @RequestMapping("/add")
@@ -124,5 +135,12 @@ public class UserController extends RoleController {
     public String updateUser(User user){
         userService.updateUser(user);
         return "redirect:user";
+    }
+    @RequestMapping("/fuzzyQuery")
+    public String fuzzyQuery(String sql,Model model){
+        List<User> users = userService.fuzzyQuery(sql);
+        model.addAttribute("users",users);
+
+        return "user";
     }
 }

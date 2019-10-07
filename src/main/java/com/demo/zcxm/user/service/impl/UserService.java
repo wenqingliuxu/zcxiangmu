@@ -4,6 +4,7 @@ import com.demo.zcxm.user.dao.IUserDao;
 import com.demo.zcxm.user.service.IUserService;
 import com.demo.zcxm.user.service.IUserService;
 import com.demo.zcxm.user.service.bo.User;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +36,9 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<User> loadAllUsers() {
-        List<User> userList = userDao.loadAllUsers();
+    public List<User> loadAllUsers(int page,int rows) {
+        PageHelper.startPage(page,rows);
+        List<User> userList = userDao.loadAllUsers(page, rows);
         return userList;
     }
 
@@ -59,6 +61,25 @@ public class UserService implements IUserService {
     @Override
     public void updateUser(User user) {
         userDao.updateUser(user);
+    }
+
+    @Override
+    public List<User> fuzzyQuery(String sql) {
+        List<User> users = userDao.fuzzyQuery(sql);
+        return users;
+    }
+
+    @Override
+    public int getMaxUserId() {
+        int maxUserId = userDao.getMaxUserId();
+        return maxUserId;
+    }
+
+
+    @Override
+    public int calcMaxPage(int rows) {
+        int totalCount = userDao.getTotalCount();
+        return totalCount%rows==0?totalCount/rows:totalCount/rows+1;
     }
 
 
