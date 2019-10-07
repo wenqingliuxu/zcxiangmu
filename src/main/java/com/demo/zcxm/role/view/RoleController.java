@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,5 +26,13 @@ public class RoleController {
     public List<Integer> selectRid(Integer uId){
         List<Integer> integers = roleService.selectRidByUid(uId);
         return integers;
+    }
+    @RequestMapping("/deleteRids")
+    public void deleteRids(@RequestParam("ids") List<Integer> ids){
+        roleService.deleteRids(ids);
+    }
+    @RequestMapping("/deleteRid")
+    public void deleteRid(int userId){
+        roleService.deleteRid(userId);
     }
 }

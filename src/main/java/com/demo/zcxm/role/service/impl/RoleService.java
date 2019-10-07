@@ -20,4 +20,14 @@ public class RoleService implements IRoleService {
     public List<Integer> selectRidByUid(int userId) {
         return roleDao.selectRidByUid(userId);
     }
+
+    @Override
+    public void deleteRids(List<Integer> ids) {
+        roleDao.deleteRids(ids);
+    }
+
+    @Override
+    public void deleteRid(int userId) {
+        roleDao.deleteRid(userId);
+    }
 }

@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface IRoleDao {
     public List<Integer> selectRidByUid(int userId);
+    public void deleteRids(List<Integer> ids);
+    public void deleteRid(int userId);
 }
