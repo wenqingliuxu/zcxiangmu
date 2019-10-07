@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -38,13 +39,25 @@ public class RoleController {
         roleService.deleteRid(userId);
     }
     @RequestMapping("/assignRole")
-    public String loadRoleByUserId(int userId, Model model){
+    public String loadRoleByUserId(int userId, Model model, HttpSession session){
+        session.setAttribute("userId",userId);
         List<Role> roles = roleService.loadRoleByUserId(userId);
-        model.addAttribute(roles);
-        logger.info("=================="+roles);
+        model.addAttribute("roles",roles);
         List<Role> roles1 = roleService.loadRoleByNoUserId(userId);
-        model.addAttribute(roles1);
-        logger.info("=================="+roles1);
+        model.addAttribute("roles1",roles1);
         return "assignRole";
     }
+    @RequestMapping("/leftGo")
+    public String addRid(@RequestParam("rid") List<Integer> rid,HttpSession session){
+        Integer userId1 = (Integer) session.getAttribute("userId");
+        roleService.addRid(userId1,rid);
+        return "redirect:assignRole?userId="+userId1;
+    }
+    @RequestMapping("/rightGo")
+    public String deleteRid(@RequestParam("rid") List<Integer> rid,HttpSession session){
+        Integer userId1 = (Integer) session.getAttribute("userId");
+        roleService.deleteRidByUserId(userId1,rid);
+        return "redirect:assignRole?userId="+userId1;
+    }
+
 }

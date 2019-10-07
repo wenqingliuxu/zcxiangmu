@@ -15,4 +15,6 @@ public interface IRoleService {
     public void deleteRid(int userId);
     public List<Role> loadRoleByUserId(int userId);
     public List<Role> loadRoleByNoUserId(int userId);
+    public void addRid(int userId,List<Integer> rid);
+    public void deleteRidByUserId(int userId,List<Integer> rid);
 }

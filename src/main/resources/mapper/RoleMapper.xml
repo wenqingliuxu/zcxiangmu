@@ -24,4 +24,16 @@
     <select id="loadRoleByNoUserId" resultType="com.demo.zcxm.role.service.bo.Role">
         select * from roles where roleId not in (select rId from user_role_mapping where uId=#{userId})
     </select>
+    <insert id="addRid">
+        insert into user_role_mapping values
+        <foreach collection="rid" item="c" separator=",">
+            (#{userId},#{c})
+        </foreach>
+    </insert>
+    <delete id="deleteRidByUserId">
+        delete from user_role_mapping where uId=#{userId} and rId in
+        <foreach collection="rid" item="c" separator="," open="(" close=")">
+            #{c}
+        </foreach>
+    </delete>
 </mapper>

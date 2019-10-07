@@ -41,4 +41,14 @@ public class RoleService implements IRoleService {
     public List<Role> loadRoleByNoUserId(int userId) {
         return roleDao.loadRoleByNoUserId(userId);
     }
+
+    @Override
+    public void addRid(int userId,List<Integer> rid) {
+        roleDao.addRid(userId, rid);
+    }
+
+    @Override
+    public void deleteRidByUserId(int userId, List<Integer> rid) {
+        roleDao.deleteRidByUserId(userId,rid);
+    }
 }

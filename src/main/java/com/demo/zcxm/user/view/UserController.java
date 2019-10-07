@@ -82,7 +82,7 @@ public class UserController extends RoleController {
 
     @RequestMapping("/user")
     public String showUsers(@RequestParam(required=false,defaultValue = "1") int page,
-                            @RequestParam(required = false,defaultValue = "10") int rows,
+                            @RequestParam(required = false,defaultValue = "5") int rows,
                             Model model){
         int maxPage=userService.calcMaxPage(rows);
         if(page<1){
@@ -140,7 +140,6 @@ public class UserController extends RoleController {
     public String fuzzyQuery(String sql,Model model){
         List<User> users = userService.fuzzyQuery(sql);
         model.addAttribute("users",users);
-
         return "user";
     }
 }

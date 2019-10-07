@@ -196,7 +196,7 @@
                                         <ul class="pagination">
                                             <a class="btn btn-default" href="user?page=1">首页</a>
                                             <a class="btn btn-default" th:href="@{user(page=${currentPage-1})}">上一页</a>
-                                            <input class="btn btn-default" th:value="${currentPage}" readonly></input>
+                                            <span th:text="${currentPage}" ></span>
                                             <a class="btn btn-default" th:href="@{user(page=${currentPage+1})}">下一页</a>
                                             <a class="btn btn-default" th:href="@{user(page=${maxPage})}">末页</a>
                                         </ul>
