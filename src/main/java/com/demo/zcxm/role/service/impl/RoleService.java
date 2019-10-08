@@ -51,4 +51,9 @@ public class RoleService implements IRoleService {
     public void deleteRidByUserId(int userId, List<Integer> rid) {
         roleDao.deleteRidByUserId(userId,rid);
     }
+
+    @Override
+    public List<Role> selectAllRole() {
+        return roleDao.selectAllRole();
+    }
 }

@@ -36,4 +36,10 @@
             #{c}
         </foreach>
     </delete>
+    <sql id="roleColumns">${alias}.roleId,${alias}.roleName</sql>
+    <select id="selectAllRole" resultType="com.demo.zcxm.role.service.bo.Role">
+        select
+        <include refid="roleColumns"><property name="alias" value="r1"/></include>
+        from roles r1;
+    </select>
 </mapper>

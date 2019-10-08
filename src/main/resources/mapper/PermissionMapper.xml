@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.zcxm.permission.dao.IPermissionDao">
+    <sql id="perConlumns">${alias}.id,${alias}.pid,${alias}.pname,${alias}.url,${alias}.icon</sql>
+    <select id="loadAll" resultType="com.demo.zcxm.permission.service.bo.Permission">
+        select * from permission
+    </select>
+    <select id="loadPmsByRoleId" resultType="com.demo.zcxm.permission.service.bo.Permission">
+        SELECT * FROM permission WHERE id IN(SELECT pid FROM role_permission_mapping WHERE rid=#{roleId})
+    </select>
+    <delete id="deletePms" parameterType="int">
+        delete from role_permission_mapping where rid=#{roleId}
+    </delete>
+    <insert id="addPms">
+        insert into role_permission_mapping values
+        <foreach collection="pid" item="p" separator=",">
+            (#{roleId},#{p})
+        </foreach>
+    </insert>
+</mapper>

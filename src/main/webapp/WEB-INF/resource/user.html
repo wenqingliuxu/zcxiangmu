@@ -82,7 +82,7 @@
                                 <a href="role"><i class="glyphicon glyphicon-king"></i> 角色维护</a>
                             </li>
                             <li style="height:30px;">
-                                <a href="permission"><i class="glyphicon glyphicon-lock"></i> 许可维护</a>
+                                <a href="/zcxiangmu/permission/loadPermissionAll"><i class="glyphicon glyphicon-lock"></i> 许可维护</a>
                             </li>
                         </ul>
                     </li>
@@ -196,7 +196,7 @@
                                         <ul class="pagination">
                                             <a class="btn btn-default" href="user?page=1">首页</a>
                                             <a class="btn btn-default" th:href="@{user(page=${currentPage-1})}">上一页</a>
-                                            <span th:text="${currentPage}" ></span>
+                                            <li th:text="${currentPage}" ></li>
                                             <a class="btn btn-default" th:href="@{user(page=${currentPage+1})}">下一页</a>
                                             <a class="btn btn-default" th:href="@{user(page=${maxPage})}">末页</a>
                                         </ul>

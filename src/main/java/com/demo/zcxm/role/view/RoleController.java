@@ -59,5 +59,10 @@ public class RoleController {
         roleService.deleteRidByUserId(userId1,rid);
         return "redirect:assignRole?userId="+userId1;
     }
-
+    @RequestMapping("/role")
+    public String loadAllRole(Model model){
+        List<Role> roles = roleService.selectAllRole();
+        model.addAttribute("roles",roles);
+        return "role";
+    }
 }

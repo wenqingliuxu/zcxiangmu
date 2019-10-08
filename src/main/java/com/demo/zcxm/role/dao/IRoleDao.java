@@ -25,4 +25,6 @@ public interface IRoleDao {
     public void addRid(@Param("userId") int userId,@Param("rid") List<Integer> rid);
 //    删除用户角色
     public void deleteRidByUserId(@Param("userId") int userId,@Param("rid") List<Integer> rid);
+//    查询所有角色
+    public List<Role> selectAllRole();
 }
