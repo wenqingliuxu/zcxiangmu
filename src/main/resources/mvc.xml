@@ -22,6 +22,7 @@
      <mvc:resources mapping="/user/viewname/script/**" location="/WEB-INF/script/"></mvc:resources>
      <mvc:resources mapping="/user/viewname/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
      <mvc:resources mapping="/user/viewname/js/**" location="/WEB-INF/js/"></mvc:resources>
+
      <mvc:resources mapping="/user/bootstrap/**"
                     location="/WEB-INF/bootstrap/"></mvc:resources>
      <mvc:resources mapping="/user/css/**" location="/WEB-INF/css/"></mvc:resources>
@@ -31,6 +32,7 @@
      <mvc:resources mapping="/user/script/**" location="/WEB-INF/script/"></mvc:resources>
      <mvc:resources mapping="/user/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
      <mvc:resources mapping="/user/js/**" location="/WEB-INF/js/"></mvc:resources>
+
     <mvc:resources mapping="/permission/bootstrap/**"
                    location="/WEB-INF/bootstrap/"></mvc:resources>
     <mvc:resources mapping="/permission/css/**" location="/WEB-INF/css/"></mvc:resources>
@@ -40,6 +42,17 @@
     <mvc:resources mapping="/permission/script/**" location="/WEB-INF/script/"></mvc:resources>
     <mvc:resources mapping="/permission/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
     <mvc:resources mapping="/permission/js/**" location="/WEB-INF/js/"></mvc:resources>
+
+    <mvc:resources mapping="/product/bootstrap/**"
+                   location="/WEB-INF/bootstrap/"></mvc:resources>
+    <mvc:resources mapping="/product/css/**" location="/WEB-INF/css/"></mvc:resources>
+    <mvc:resources mapping="/product/fonts/**" location="/WEB-INF/fonts/"></mvc:resources>
+    <mvc:resources mapping="/product/img/**" location="/WEB-INF/img/"></mvc:resources>
+    <mvc:resources mapping="/product/jquery/**" location="/WEB-INF/jquery/"></mvc:resources>
+    <mvc:resources mapping="/product/script/**" location="/WEB-INF/script/"></mvc:resources>
+    <mvc:resources mapping="/product/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
+    <mvc:resources mapping="/product/js/**" location="/WEB-INF/js/"></mvc:resources>
+
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
         <property name="prefix" value="/WEB-INF/resource/"></property>
         <property name="suffix" value=".html"></property>
