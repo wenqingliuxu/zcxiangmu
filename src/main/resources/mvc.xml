@@ -53,6 +53,26 @@
     <mvc:resources mapping="/product/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
     <mvc:resources mapping="/product/js/**" location="/WEB-INF/js/"></mvc:resources>
 
+    <mvc:resources mapping="/role/bootstrap/**"
+                   location="/WEB-INF/bootstrap/"></mvc:resources>
+    <mvc:resources mapping="/role/css/**" location="/WEB-INF/css/"></mvc:resources>
+    <mvc:resources mapping="/role/fonts/**" location="/WEB-INF/fonts/"></mvc:resources>
+    <mvc:resources mapping="/role/img/**" location="/WEB-INF/img/"></mvc:resources>
+    <mvc:resources mapping="/role/jquery/**" location="/WEB-INF/jquery/"></mvc:resources>
+    <mvc:resources mapping="/role/script/**" location="/WEB-INF/script/"></mvc:resources>
+    <mvc:resources mapping="/role/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
+    <mvc:resources mapping="/role/js/**" location="/WEB-INF/js/"></mvc:resources>
+
+    <mvc:resources mapping="/renZheng/bootstrap/**"
+                   location="/WEB-INF/bootstrap/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/css/**" location="/WEB-INF/css/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/fonts/**" location="/WEB-INF/fonts/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/img/**" location="/WEB-INF/img/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/jquery/**" location="/WEB-INF/jquery/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/script/**" location="/WEB-INF/script/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/ztree/**" location="/WEB-INF/ztree/"></mvc:resources>
+    <mvc:resources mapping="/renZheng/role/js/**" location="/WEB-INF/js/"></mvc:resources>
+
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
         <property name="prefix" value="/WEB-INF/resource/"></property>
         <property name="suffix" value=".html"></property>

@@ -42,4 +42,5 @@
         <include refid="roleColumns"><property name="alias" value="r1"/></include>
         from roles r1;
     </select>
+
 </mapper>

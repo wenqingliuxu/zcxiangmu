@@ -15,4 +15,16 @@
         from products pd1
         where productId=#{productId}
     </select>
+    <insert id="addOrder">
+        insert into order_form values((select userId from users where userName=#{userName}),#{productId})
+    </insert>
+    <select id="selectProductsByUserId" resultType="com.demo.zcxm.product.service.bo.Products">
+        select
+        <include refid="productContumns"><property name="alias" value="pd1"/></include>
+        from products pd1
+        where productId in(select product_id from order_form where user_id=(select userId from users where userName=#{userName}))
+    </select>
+    <delete id="deleteOrder">
+        delete from order_form where product_id=#{productId} and user_id=(select userId from users where userName=#{userName})
+    </delete>
 </mapper>

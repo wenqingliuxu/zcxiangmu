@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.zcxm.renzheng.dao.IRenZhengDao">
+    <resultMap id="renZhengMap" type="com.demo.zcxm.renzheng.service.bo.RenZheng"></resultMap>
+    <insert id="addRenZheng">
+        insert into renzheng(realName,IDnumber,iPhone) values(#{realName},#{IDnumber},#{iPhone})
+    </insert>
+</mapper>

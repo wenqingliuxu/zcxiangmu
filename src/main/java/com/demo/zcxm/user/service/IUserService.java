@@ -20,4 +20,5 @@ public interface IUserService {
     public List<User> fuzzyQuery(String sql);
     public int getMaxUserId();
     public int calcMaxPage(int rows);
+    public int getUserId(String userName);
 }

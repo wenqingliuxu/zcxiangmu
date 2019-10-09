@@ -13,4 +13,7 @@ import java.util.List;
 public interface IProductDao {
     public List<Products> loadAllProducts();
     public Products loadProductById(Integer productId);
+    public void addOrder(@Param("userName") String yonghuName,@Param("productId")Integer productId1);
+    public List<Products> selectProductsByUserId(@Param("userName")String yonghuName);
+    public void deleteOrder(int productId,@Param("userName")String userName);
 }

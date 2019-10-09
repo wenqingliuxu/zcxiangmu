@@ -12,5 +12,8 @@ import java.util.List;
 public interface IProductService {
     public List<Products> loadAllProducts();
     public Products loadProductById(Integer productId);
+    public void addOrder(String yonghuName,Integer productId1);
+    public List<Products> selectProductsByUserId(String yonghuName);
+    public void deleteOrder(int productId,String userName);
 }
 

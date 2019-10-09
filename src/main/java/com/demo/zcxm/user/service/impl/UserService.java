@@ -82,5 +82,11 @@ public class UserService implements IUserService {
         return totalCount%rows==0?totalCount/rows:totalCount/rows+1;
     }
 
+    @Override
+    public int getUserId(String userName) {
+        int userId = userDao.getUserId(userName);
+        return userId;
+    }
+
 
 }

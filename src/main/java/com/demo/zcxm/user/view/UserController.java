@@ -138,7 +138,9 @@ public class UserController extends RoleController {
     }
     @RequestMapping("/fuzzyQuery")
     public String fuzzyQuery(String sql,Model model){
+        logger.info("====================="+sql);
         List<User> users = userService.fuzzyQuery(sql);
+        logger.info("++++++++++++++++++++++++++++"+users);
         model.addAttribute("users",users);
         return "user";
     }

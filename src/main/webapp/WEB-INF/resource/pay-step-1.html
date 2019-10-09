@@ -77,17 +77,17 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			  <div class="container">
 				<div class="navbar-header">
-				  <a class="navbar-brand" href="index.html" style="font-size:32px;">千锋-创意产品众筹平台</a>
+				  <a class="navbar-brand" href="/zcxiangmu/permission/loadAllPermission" style="font-size:32px;">千锋-创意产品众筹平台</a>
 				</div>
             <div id="navbar" class="navbar-collapse collapse" style="float:right;">
               <ul class="nav navbar-nav">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> 张三<span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <span th:text="${yonghuName}"></span><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="member.html"><i class="glyphicon glyphicon-scale"></i> 会员中心</a></li>
                     <li><a href="#"><i class="glyphicon glyphicon-comment"></i> 消息</a></li>
                     <li class="divider"></li>
-                    <li><a href="index.html"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
+                    <li><a href="/zcxiangmu/user/viewname/index"><i class="glyphicon glyphicon-off"></i> 退出系统</a></li>
                   </ul>
                 </li>
               </ul>
@@ -194,7 +194,7 @@
                                     </table>
                                     <div style="float:right;">
                                     <p>总价(含运费)：<span style="font-size:16px;color:#F60;">￥1.00</span></p>
-                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="window.location.href='/zcxiangmu/user/viewname/login'"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
+                                    <button type="button" class="btn btn-warning btn-lg" style="float:right;" onclick="window.location.href='goLogin'"><i class="glyphicon glyphicon-credit-card"></i> 去结算</button>
                                     </div>
                                 </div>
                                 

@@ -46,12 +46,15 @@
         update users set userName=#{userName},userPwd=#{userPwd},userNc=#{userNc},userEmail=#{userEmail} where userId=#{userId}
     </update>
     <select id="fuzzyQuery" resultType="com.demo.zcxm.user.service.bo.User">
-        select * from users where concat(userName,userNc,userEmail) like '%' #{like} '%'
+        select * from users where concat(userName,userNc,userEmail) like '%' #{sql} '%'
     </select>
     <select id="getTotalCount" resultType="int">
         select count(userId) from users
     </select>
     <select id="getMaxUserId" resultType="int">
         select max(userId) from users
+    </select>
+    <select id="getUserId" resultType="int">
+        select userId from users where userName=#{userName}
     </select>
 </mapper>

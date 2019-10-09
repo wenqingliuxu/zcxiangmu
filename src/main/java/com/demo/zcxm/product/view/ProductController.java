@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -21,7 +22,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/product")
-@SessionAttributes("productId")
+//@SessionAttributes("productId")
 public class ProductController {
     private static final Logger logger = LogManager.getLogger(ProductController.class);
     @Autowired
@@ -46,5 +47,32 @@ public class ProductController {
         Products product = productService.loadProductById(productId1);
         model.addAttribute("product",product);
         return "pay-step-1";
+    }
+    @RequestMapping("/goLogin")
+    public String goLogin(Integer productId,HttpSession session,Model model){
+        Integer productId1 = (Integer) session.getAttribute("productId");
+        Products product = productService.loadProductById(productId1);
+        model.addAttribute("product",product);
+        return "login";
+    }
+    @RequestMapping("/minecrowdfunding")
+    public String myZhongChou(Integer productId,String userName,HttpSession session,Model model){
+        Integer productId1 = (Integer) session.getAttribute("productId");
+        String  yonghuName = (String) session.getAttribute("yonghuName");
+        model.addAttribute("yonghuName",yonghuName);
+        productService.addOrder(yonghuName,productId1);
+        List<Products> productsList = productService.selectProductsByUserId(yonghuName);
+        model.addAttribute("productsList",productsList);
+        return "minecrowdfunding";
+    }
+    @RequestMapping("/DeleteOrder")
+    public String deleteOrder(int productId, String userName, HttpSession session, Model model){
+        logger.info("===========================productId:"+productId);
+        String  yonghuName = (String) session.getAttribute("yonghuName");
+        logger.info("===========================yonghuName:"+yonghuName);
+        productService.deleteOrder(productId,userName);
+        List<Products> productsList = productService.selectProductsByUserId(yonghuName);
+        model.addAttribute("productsList",productsList);
+        return "redirect:minecrowdfunding";
     }
 }

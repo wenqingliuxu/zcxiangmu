@@ -29,4 +29,20 @@ public class ProductService implements IProductService {
         Products product = productDao.loadProductById(productId);
         return product;
     }
+
+    @Override
+    public void addOrder(String yonghuName, Integer productId1) {
+        productDao.addOrder(yonghuName,productId1);
+    }
+
+    @Override
+    public List<Products> selectProductsByUserId(String yonghuName) {
+        List<Products> productsList = productDao.selectProductsByUserId(yonghuName);
+        return productsList;
+    }
+
+    @Override
+    public void deleteOrder(int productId,String userName) {
+        productDao.deleteOrder(productId,userName);
+    }
 }

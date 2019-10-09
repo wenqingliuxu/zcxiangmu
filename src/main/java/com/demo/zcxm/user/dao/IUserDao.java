@@ -33,4 +33,6 @@ public interface IUserDao {
     public int getTotalCount();
 //    计算最大页数
     public int calcMaxPage(int rows);
+//    根据用户名查询用户Id
+    public int getUserId(String userName);
 }
